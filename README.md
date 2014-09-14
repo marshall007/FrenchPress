@@ -52,7 +52,6 @@ render: (DOM, props)->
         input type: "text", placeholder: "What needs to be done?"
 ```
 ####Will generate:
-
 ```HTML
 <div class="todo-app">
     <h1>Todo's By FrenchPress</h1>
