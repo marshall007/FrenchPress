@@ -51,6 +51,7 @@ render: (DOM, props)->
         h1 "Todo's By FrenchPress" 
         input type: "text", placeholder: "What needs to be done?"
 ```
+
 ####Will generate:
 
 ```HTML
