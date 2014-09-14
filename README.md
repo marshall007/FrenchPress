@@ -1,6 +1,7 @@
 #![French Press](http://dylanpiercey.com/img/fp.png)French Press 
 ####(6kb minified and 2.3kb gzipped)
 A very tiny, very fast and extremely flexible MVC designed specifically for coffee-script.
+##[View The Demo](https://github.com/DylanPiercey/FPMusic)
 
 ##Download
 The minified js version of French Press can be found in the [bin folder](https://github.com/DylanPiercey/FrenchPress/blob/master/bin/frenchpress.min.js).
