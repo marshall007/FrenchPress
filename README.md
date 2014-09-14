@@ -62,6 +62,7 @@ Render must return a virtual dom node. (usually with children)
     + When the virtual DOM is updated, it only updates the minimal amount of DOM nodes.
     
 As an example lets add a for loop of todo's (Defined outside of the fp.element just because thats possible) and some buttons to work with todos. (This will render all of the todos in a list, but you cannot load more or do anything with them yet.)
+
     ```CoffeeScript
     render: (DOM)->
         {div, h1, h2, input, span, ul, li, del, label, button} = DOM
