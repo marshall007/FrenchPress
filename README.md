@@ -43,10 +43,6 @@ Render must return a virtual dom node. (usually with children)
                     h1 "Todo's By FrenchPress" 
                     input type: "text", placeholder: "What needs to be done?"
 ####Will generate:
-<div class="todo-app">
-    <h1>Todo's By FrenchPress</h1>
-    <input type="text" placeholder="What needs to be done?">
-</div>
 
             <div class="todo-app">
                 <h1>Todo's By FrenchPress</h1>
