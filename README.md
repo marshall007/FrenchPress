@@ -63,31 +63,31 @@ Render must return a virtual dom node. (usually with children)
     
 As an example lets add a for loop of todo's (Defined outside of the fp.element just because thats possible) and some buttons to work with todos. (This will render all of the todos in a list, but you cannot load more or do anything with them yet.)
 
-    ```CoffeeScript
-    render: (DOM)->
-        {div, h1, h2, input, span, ul, li, del, label, button} = DOM
-        div(
-            h1 "Todo's By FrenchPress"
-            input type: "text", placeholder: "What needs to be done?"
-            if list.length > 0
-                label(
-                    input type: "checkbox"
-                    span "Mark all as completed"
-                )
-    
-            #Note that the comprehension returns virtual nodes to the ul node. "When" filters work too!
-            ul (for todo, i in list
-                    li class: "todo",
-                        #And here the if/else returns a string (Undo or Finish)
-                        button (if todo.checked then "Undo" else "Finish")
-                        #Here we are even choosing a virtual element inline based on the status of the todo (del or span element)
-                        (if todo.checked then del else span) " #{todo.text}"
-                )
-    
-            div "#{list.count((n)-> not n.checked)} left."
-            button "Remove all completed."
-        )
-    ```
+        ```CoffeeScript
+        render: (DOM)->
+            {div, h1, h2, input, span, ul, li, del, label, button} = DOM
+            div(
+                h1 "Todo's By FrenchPress"
+                input type: "text", placeholder: "What needs to be done?"
+                if list.length > 0
+                    label(
+                        input type: "checkbox"
+                        span "Mark all as completed"
+                    )
+        
+                #Note that the comprehension returns virtual nodes to the ul node. "When" filters work too!
+                ul (for todo, i in list
+                        li class: "todo",
+                            #And here the if/else returns a string (Undo or Finish)
+                            button (if todo.checked then "Undo" else "Finish")
+                            #Here we are even choosing a virtual element inline based on the status of the todo (del or span element)
+                            (if todo.checked then del else span) " #{todo.text}"
+                    )
+        
+                div "#{list.count((n)-> not n.checked)} left."
+                button "Remove all completed."
+            )
+        ```
 
 ##Init Element / Add Events / Update View
 FP Elements optionally can have an "init" function that can initialize an element (asynchronously or not).
