@@ -11,6 +11,10 @@ Creates global "fp" object.
 
     CACHE = null
 
+####Get requestAnimationFrame
+
+    requestAnimationFrame = window.requestAnimationFrame or window.mozRequestAnimationFrame or window.webkitRequestAnimationFrame or window.oRequestAnimationFrame
+
 ##Export fp (French Press) Object
 The entry point to the API for French Press.
 
@@ -55,7 +59,8 @@ This function will start a virtual DOM update, eventually updating the DOM and t
 
             REDRAW = ->
                 nodes = render.bind(state, DOM, props)()
-                do change for change in update nodes, CACHE
+                changes = update nodes, CACHE
+                requestAnimationFrame -> do change for change in changes
                 CACHE = nodes
 
 ####Initialize state and props (if unset) for the element.
