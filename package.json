@@ -1,0 +1,25 @@
+{
+    "name": "FrenchPress",
+    "version": "0.0.1",
+    "description": "An efficient reactive client-side templating solution.",
+    "author": "Dylan Piercey <pierceydylan@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DylanPiercey/FrenchPress"
+    },
+    "bugs": {
+        "url": "https://github.com/DylanPiercey/FrenchPress/issues"
+    },
+    "keywords": [
+        "french",
+        "press",
+        "frenchpress",
+        "react",
+        "reactive",
+        "sugarjs",
+        "litcoffeescript"
+    ],
+    "browserify": {
+        "transform": ["coffeeify", "uglifyify"]
+    }
+}
