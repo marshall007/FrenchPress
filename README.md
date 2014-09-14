@@ -22,7 +22,6 @@ fp.render document.body, ToDoList()
 
 1. Each FP element must provide a render function with a coffee-script template.
 Render must return a virtual dom node. (usually with children)
-
 ```CoffeeScript
 TodoList = fp.element(
     render: (DOM, props)-> aNode(aSubNode)
@@ -30,7 +29,6 @@ TodoList = fp.element(
 ```
 
 2. Extract all wanted virtual elements (functions) from the provided DOM.
-
 ```CoffeeScript
 render: (DOM, props)->
     {div, h1, h2, input, span, ul, li, del, label, button} = DOM
@@ -41,8 +39,7 @@ render: (DOM, props)->
     + `Virtual Elements`: Taken as children.
     + `FP Elements`: Taken as children
     + `Arrays`: Simply added to children
-    + `Anything else`: Converted to a string
-    
+    + `Anything else`: Converted to a string 
 ```CoffeeScript
 render: (DOM, props)->
     {div, h1, h2, input, span, ul, li, del, label, button} = DOM
@@ -65,7 +62,6 @@ render: (DOM, props)->
     + When the virtual DOM is updated, it only updates the minimal amount of DOM nodes.
     
 As an example lets add a for loop of todo's (Defined outside of the fp.element just because thats possible) and some buttons to work with todos. (This will render all of the todos in a list, but you cannot load more or do anything with them yet.)
-
 ```CoffeeScript
 render: (DOM)->
     {div, h1, h2, input, span, ul, li, del, label, button} = DOM
@@ -100,7 +96,6 @@ Init can return an object which will be bound to the elements state inside the t
 Bound to the init function is a **REDRAW** function that when invoked will intelligently update the DOM.
 
 1. Creating an eventListener is as easy as HTML, French Press will automatically map your listeners to action listeners.
-
 ```CoffeeScript
 list = []
 
@@ -129,7 +124,6 @@ TodoList = fp.element(
     
 2. Finishing up.
 It's as simple as using events and calling @REDRAW when there should be an update.
-
 ```CoffeeScript
 list = []
 
