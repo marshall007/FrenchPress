@@ -118,7 +118,7 @@ It's as simple as using events and calling @REDRAW when there should be an updat
         list = []
 
         ToDoList = fp.element(
-            init: -> #TODO: do a redraw after init function call
+            init: ->
                 completeAll: ({target: {checked}})=>
                     list = (for todo in list
                         todo.checked = checked
