@@ -71,7 +71,7 @@ Gets a textNode in DOM based on depth.
                         else changes.push -> getElem().setAttribute attr, value
 
                     #Scan old node for attributes that have been removed in cur node.
-                    for attr, value of old.attrs when not cur.attrs[attr]?
+                    for attr of old.attrs when not cur.attrs[attr]?
 
                         #If attr is event (starts with on): remove old event.
                         if attr[0..1] is "on"
