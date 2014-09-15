@@ -41,15 +41,19 @@ Gets a textNode in DOM based on depth.
             unless old? then changes.push -> getParent().appendChild makeElem cur, depth
 
             #No cur element: remove previous element.
-            else unless cur? then changes.push -> getElem().remove()
+            else unless cur?
+                changes.push ->
+                    elem = getElem()
+                    elem.parentNode.removeChild elem
 
             #Start comparison of two nodes.
             else if cur.isNode and old.isNode
 
                 #Tag name changed, replace old node with cur node.
                 if cur.tagName isnt old.tagName
-                    elem = getElem()
-                    changes.push -> elem.parentNode.replaceChild makeElem(cur, depth), elem
+                    changes.push ->
+                        elem = getElem()
+                        elem.parentNode.replaceChild makeElem(cur, depth), elem
 
                 else
 
