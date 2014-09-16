@@ -3,6 +3,9 @@
 A very tiny, very fast and extremely flexible MVC designed specifically for coffee-script.
 ##[View The Demo](https://github.com/DylanPiercey/FPMusic)
 
+##News
+Some breaking errors were introduced yesterday. If your DOM is not redrawing properly please update.
+
 ##Download
 The minified js version of French Press can be found in the [bin folder](https://github.com/DylanPiercey/FrenchPress/blob/master/bin/frenchpress.min.js).
 
