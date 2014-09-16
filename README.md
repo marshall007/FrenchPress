@@ -2,6 +2,7 @@
 ####(6kb minified and 2.3kb gzipped)
 A very tiny, very fast and extremely flexible MVC designed specifically for coffee-script.
 ##[View The Demo](https://github.com/DylanPiercey/FPMusic)
+##[View The JavaScript Demo](https://github.com/DylanPiercey/FPMusicJS)
 
 ##News
 Some breaking errors were introduced yesterday. If your DOM is not redrawing properly please update.
