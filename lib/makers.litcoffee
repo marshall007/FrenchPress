@@ -15,9 +15,9 @@ Adds all virtual node attributes to DOM node except when attribute is an event l
         if node.isNode
             {tagName, attrs, children} = node
             elem = document.createElement tagName
-            elem.setAttribute("fp-id", depth)
+            elem.setAttribute "fp-id", depth
             for attr, value of attrs
-                if attr[0..1] is "on" then (elem.addEventListener or elem.attachEvent) attr.substring(2).toLowerCase(), value
+                if attr[0..1] is "on" then elem.addEventListener attr.substring(2).toLowerCase(), value
                 else if attr is "innerHTML" then elem.innerHTML = value
                 else elem.setAttribute attr, value
             if children? then elem.appendChild makeElem child, "#{depth}.#{i}" for child, i in children

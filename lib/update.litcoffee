@@ -62,11 +62,11 @@ Gets a textNode in DOM based on depth.
 
                         #If attr is event (starts with on): remove old event, add new event.
                         if attr[0..1] is "on"
-                            elem = getElem()
                             event = attr.substring(2).toLowerCase()
                             changes.push ->
-                                (elem.removeEventListener or elem.detachEvent) event, old.attrs[attr]
-                                (elem.addEventListener or elem.attachEvent)  event, value
+                                elem = getElem()
+                                elem.removeEventListener event, old.attrs[attr]
+                                elem.addEventListener event, value
 
                         #If attr is innerHTML: Set innerHTML
                         else if attr is "innerHTML" then changes.push -> getElem().innerHTML = value
@@ -80,7 +80,7 @@ Gets a textNode in DOM based on depth.
                         #If attr is event (starts with on): remove old event.
                         if attr[0..1] is "on"
                             event = attr.substring(2).toLowerCase()
-                            changes.push -> (getElem().removeEventListener or getElem().detachEvent) event, old.attrs[attr]
+                            changes.push -> getElem().removeEventListener event, old.attrs[attr]
 
                         #If attr is innerHTML: remove innerHTML
                         else if attr is "innerHTML" then changes.push -> getElem().innerHTML = ""
