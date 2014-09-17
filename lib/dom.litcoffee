@@ -26,23 +26,25 @@ Creates a virtual node, recursively adding all child nodes.
 
 **RETURNS**: Virtual DOM node with all nested children.
 
-    Node = (tagName)-> (args, children...)->
+    Node = (tag)-> (args, nodes...)->
         if args?
-            if typeof args is "object" and not args.isNode then attrs = args
-            else children.unshift args
+            if typeof args is "object" and not args.fp then attrs = args
+            else nodes.unshift args
 
-        for child, i in children
-            unless child? then children.splice i, 1
-            else if Array.isArray child then children.splice i, 1, child...
+        for node, i in nodes
+            unless node? then nodes.splice i, 1
+            else if Array.isArray node then nodes.splice i, 1, node...
 
-        result = {tagName, isNode: yes}
-        result.attrs = attrs if attrs?
-        result.children = children if children[0]?
+        result = {tag, fp: yes}
+        if attrs? then result.attrs = attrs
+        if nodes[0]? then result.nodes = nodes
         result
 
 ##Exports: Virtual DOM
 
     nodes = {}
     nodes[tag] = Node tag for tag in tags
+    nodes["mapTo"] = (tag)-> (data)->
+        nodes[tag](data)
 
     module.exports = nodes

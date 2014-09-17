@@ -47,10 +47,10 @@ Gets a textNode in DOM based on depth.
                     elem.parentNode.removeChild elem
 
             #Start comparison of two nodes.
-            else if cur.isNode and old.isNode
+            else if cur.fp and old.fp
 
                 #Tag name changed, replace old node with cur node.
-                if cur.tagName isnt old.tagName
+                if cur.tag isnt old.tag
                     changes.push ->
                         elem = getElem()
                         elem.parentNode.replaceChild makeElem(cur, depth), elem
@@ -89,22 +89,22 @@ Gets a textNode in DOM based on depth.
                         else changes.push -> getElem().removeAttribute attr
 
                     #If both elements have children then we must diff them.
-                    if cur.children? and old.children?
-                        for i in [0...Math.max cur.children.length, old.children.length]
+                    if cur.nodes? and old.nodes?
+                        for i in [0...Math.max cur.nodes.length, old.nodes.length]
                             changes.splice changes.length, 0, (
-                                getUpdates cur.children[i], old.children[i], "#{depth}.#{i}"
+                                getUpdates cur.nodes[i], old.nodes[i], "#{depth}.#{i}"
                             )...
 
                     #If old node has children and cur node doesn't: Remove all old nodes children.
-                    else if old.children? then changes.push -> getElem().innerHTML = ""
+                    else if old.nodes? then changes.push -> getElem().innerHTML = ""
 
                     #If cur node has children and old node doesn't: Add all cur nodes children.
-                    else if cur.children?
-                        changes.push -> getElem().appendChild makeElem child, "#{depth}.#{i}" for child, i in cur.children
+                    else if cur.nodes?
+                        changes.push -> getElem().appendChild makeElem child, "#{depth}.#{i}" for child, i in cur.nodes
 
 
             #When old node is textNode and cur node isn't: Rebuild node.
-            else if cur.isNode
+            else if cur.fp
                 elem = getTextElem()
                 changes.push -> elem.parentNode.replaceChild makeElem(cur, depth), elem
 
