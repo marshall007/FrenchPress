@@ -30,11 +30,11 @@ module.exports = (DOM)->
         head(
             title "test"
             script type: "text/javascript",
-                   """
+                    """
                     if (foo) {
                         bar(1 + 5)
                     }
-                """
+                    """
         )
         body(
             h1 "French Press - template engine"
