@@ -26,34 +26,35 @@ app.get("*", (req, res)->
 ```
 
 ##Example view for node (.coffee file extension)
-```CoffeeScript
-module.exports = (DOM)->
-    {html, head, body, title, script, div, h1, p} = DOM
-    html lang: "en",
-        head(
-            title "test"
-            script type: "text/javascript",
-                    """
-                    if (foo) {
-                        bar(1 + 5)
-                    }
-                    """
-        )
-        body(
-            h1 "French Press - template engine"
-            div id: "container", class: "col",
-                if @youAreUsingFrenchPress
-                    p "You are amazing"
-                else
-                    p "Get on it!"
+All html elements are automatically exposed as functions. (Do not need to extract them from the DOM, or export a function).
 
-            p """
-                French Press is a terse and simple
-                templating language with a
-                strong focus on performance
-                and powerful features.
-            """
-        )
+Also nodejs French Press templates do not need to return one node, they can return as many outer nodes as necessary.
+```CoffeeScript
+html lang: "en",
+    head(
+        title "test"
+        script type: "text/javascript",
+                """
+                if (foo) {
+                    bar(1 + 5)
+                }
+                """
+    )
+    body(
+        h1 "French Press - template engine"
+        div id: "container", class: "col",
+            if @youAreUsingFrenchPress
+                p "You are amazing"
+            else
+                p "Get on it!"
+
+        p """
+            French Press is a terse and simple
+            templating language with a
+            strong focus on performance
+            and powerful features.
+        """
+    )
 ```
 
 #Browser
