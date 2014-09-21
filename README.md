@@ -22,6 +22,37 @@ app.get("*", (req, res)->
 )
 ```
 
+##Example view for node (.coffee file extension)
+```CoffeeScript
+module.exports = (DOM)->
+    {html, head, body, title, script, div, h1, p} = DOM
+    html lang: "en",
+        head(
+            title "test"
+            script type: "text/javascript",
+                   """
+                    if (foo) {
+                        bar(1 + 5)
+                    }
+                """
+        )
+        body(
+            h1 "French Press - template engine"
+            div id: "container", class: "col",
+                if @youAreUsingFrenchPress
+                    p "You are amazing"
+                else
+                    p "Get on it!"
+
+            p """
+                French Press is a terse and simple
+                templating language with a
+                strong focus on performance
+                and powerful features.
+            """
+        )
+```
+
 #Browser
 The FrenchPress API is exposed through a global "fp" object.
 
