@@ -1,5 +1,5 @@
 {
-    "name": "FrenchPress",
+    "name": "french-press-node",
     "version": "0.0.2",
     "description": "An efficient reactive client-side templating solution.",
     "author": "Dylan Piercey <pierceydylan@gmail.com>",

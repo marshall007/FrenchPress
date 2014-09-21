@@ -8,13 +8,16 @@ A very tiny, very fast and extremely flexible MVC designed specifically for coff
 Some breaking errors were introduced yesterday. If your DOM is not redrawing properly please update.
 
 ##Download
+####Client:
 The minified js version of French Press can be found in the [bin folder](https://github.com/DylanPiercey/FrenchPress/blob/master/bin/frenchpress.min.js).
+####Server:
+    npm install french-press-node
 
-#NodeJS (Download entire repo)
+#NodeJS
 ##Setting up as default view engine:
 
 ```CoffeeScript
-app.engine("coffee", require("FrenchPress/node"))
+app.engine("coffee", require("french-press-node/express"))
 app.set("views", __dirname + "/views")
 
 app.get("*", (req, res)->
