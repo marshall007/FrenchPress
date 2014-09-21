@@ -31,7 +31,8 @@ Renders compressed HTML from an fp template.
     module.exports = (path, locals, callback)->
         fs.readFile(path, (err, data)->
             if err then throw err
-            render = (CACHE[path] or CACHE[path] = eval compile("-> [" + data + "]", bare: on)).bind(null, locals)()
+                CACHE[path] or= eval compile("-> [" + data + "]", bare: on)
+            render = CACHE[path].bind(null, locals)()
             result = "<!DOCTYPE html>"
             result += makeHTML elem for elem in render
 
