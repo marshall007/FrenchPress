@@ -1,6 +1,6 @@
 {
     "name": "FrenchPress",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An efficient reactive client-side templating solution.",
     "author": "Dylan Piercey <pierceydylan@gmail.com>",
     "repository": {
@@ -20,6 +20,6 @@
         "litcoffeescript"
     ],
     "browserify": {
-        "transform": ["coffeeify"]
+        "transform": ["coffeeify", "uglifyify"]
     }
 }
