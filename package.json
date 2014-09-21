@@ -20,6 +20,6 @@
         "litcoffeescript"
     ],
     "browserify": {
-        "transform": ["coffeeify", "uglifyify"]
+        "transform": ["coffeeify"]
     }
 }

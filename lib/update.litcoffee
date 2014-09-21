@@ -2,7 +2,7 @@
 
 ##Dependancies
 
-    {makeElem} = require "./makers"
+    makeElem = require "./makeElem"
 
 ##Update Function
 

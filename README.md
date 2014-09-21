@@ -10,7 +10,19 @@ Some breaking errors were introduced yesterday. If your DOM is not redrawing pro
 ##Download
 The minified js version of French Press can be found in the [bin folder](https://github.com/DylanPiercey/FrenchPress/blob/master/bin/frenchpress.min.js).
 
-#Tutorial
+#NodeJS (Download entire repo)
+##Setting up as default view engine:
+
+```CoffeeScript
+app.engine("coffee", require("FrenchPress/node"))
+app.set("views", __dirname + "/views")
+
+app.get("*", (req, res)->
+    res.render("index.coffee", youAreUsingFrenchPress: yes)
+)
+```
+
+#Browser
 The FrenchPress API is exposed through a global "fp" object.
 
 ##Rendering an FP Element:

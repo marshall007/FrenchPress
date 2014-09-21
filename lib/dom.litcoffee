@@ -28,7 +28,7 @@ Creates a virtual node, recursively adding all child nodes.
 
     Node = (tag)-> (args, nodes...)->
         if args?
-            if typeof args is "object" and not args.fp then attrs = args
+            if typeof args is "object" and not (args.fp or Array.isArray args) then attrs = args
             else nodes.unshift args
 
         for node, i in nodes

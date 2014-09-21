@@ -5,7 +5,7 @@ Creates global "fp" object.
 
     DOM = require "./lib/dom"
     update = require "./lib/update"
-    {makeElem, makeHTML} = require "./lib/makers"
+    makeElem = require "./lib/makeElem"
 
 ####Cache for previous fp element.
 
@@ -32,15 +32,6 @@ Renders a French Press element to the DOM at a given parent element.
             CACHE = element
             parent.innerHTML = null
             parent.appendChild makeElem element
-
-##Render HTML from FP Element
-Renders compressed HTML from an fp element. (Listeners are ignored).
-
-**PARAMS**:
-
-+ `element`: The fp element to get HTML for.
-
-        renderHTML: (template)-> makeHTML template
 
 
 ##Create an FP Element

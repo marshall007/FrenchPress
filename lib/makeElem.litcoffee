@@ -1,6 +1,4 @@
-#French Press Makers
-
-##Make DOM Element
+#Make DOM Element
 Creates a DOM element and child nodes based on a virtual node.
 Adds all virtual node attributes to DOM node except when attribute is an event lister.
 
@@ -25,24 +23,4 @@ Adds all virtual node attributes to DOM node except when attribute is an event l
         else elem = document.createTextNode "#{node}"
         return elem
 
-##Make HTML
-Generates html for given node and it's child nodes.
-
-**PARAMS**:
-
-+ `node`: The node to begin create HTML for. (Renders other nodes recursively)
-
-**RETURNS**: Compressed HTML representation of virtual node and child nodes.
-
-    makeHTML = (node)->
-        if node.isNode
-            {tag, attrs, nodes} = node
-            "<#{tag + (" #{attr}=\"#{value}\"" for attr, value of attrs when attr[0..1] isnt "on")}>" +
-            if nodes? then ("#{makeHTML child}" for child in nodes).join("") else "" +
-            "</#{tag}>"
-        else "#{node}"
-
-
-##Exports: Maker Functions
-
-    module.exports = {makeElem, makeHTML}
+    module.exports = makeElem
