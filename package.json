@@ -1,6 +1,6 @@
 {
     "name": "french-press-node",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "An efficient reactive client-side templating solution.",
     "author": "Dylan Piercey <pierceydylan@gmail.com>",
     "repository": {
